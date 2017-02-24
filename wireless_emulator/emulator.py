@@ -49,6 +49,7 @@ class Emulator(metaclass=Singleton):
         cmd = subprocess.Popen('ovs-vsctl add-br oywe-br',
                                shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
         logger.info("Bridge oywe-br created!")
+        print("Bridge oywe-br created...")
 
     def createNetworkElements(self):
         logger.debug("Creating Network Elements")

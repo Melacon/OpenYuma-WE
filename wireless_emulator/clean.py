@@ -10,13 +10,15 @@ def cleanup():
     stopAndRemoveDockerContainers(dockerNames)
     removeDockerNetworks(dockerNetworks)
 
+    removeMainBridge()
+
     print("All cleaned up!")
     return True
 
 def getDockerNames():
     dockerNamesList = []
 
-    stringCmd = "docker ps -a | grep yumatest | awk '{print $12}'"
+    stringCmd = "docker ps -a | grep yumatest | awk '{print $NF}'"
 
     cmd = subprocess.Popen(stringCmd, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
 
@@ -83,3 +85,16 @@ def removeDockerNetworks(dockerNetworks):
             strLine = line.decode("utf-8").rstrip('\n')
             logger.critical("Could not remove docker network %s\n Stderr: %s" % network, strLine)
             raise RuntimeError("Could not remove docker container %s" % network)
+
+def removeMainBridge():
+    cmd = subprocess.Popen('ovs-vsctl list-br', shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+
+    for line in cmd.stdout:
+        bridge = line.decode("utf-8").rstrip('\n')
+        if bridge == "oywe-br":
+            cmd = subprocess.Popen('ovs-vsctl del-br oywe-br', shell=True, stdout=subprocess.PIPE,
+                                   stderr=subprocess.PIPE)
+            logger.info("Bridge oywe-br deleted!")
+            print("Bridge oywe-br deleted...")
+            break
+

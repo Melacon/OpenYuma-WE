@@ -49,6 +49,9 @@ class Link:
         return True
 
     def addLink(self):
+        print("Adding link between NE %s interface %s and NE %s interface %s..." %
+              (self.interfacesObj[0].getNeName(), self.interfacesObj[0].getInterfaceUuid(),
+               self.interfacesObj[1].getNeName(), self.interfacesObj[0].getInterfaceUuid()))
         logger.debug("Adding link between interfaces %s and %s",
                      self.interfacesObj[0].getInterfaceUuid(), self.interfacesObj[1].getInterfaceUuid())
 

@@ -127,6 +127,8 @@ class NetworkElement:
                 raise ValueError("Illegal layer value")
 
     def createDockerContainer(self):
+        print("Creating docker container %s..." % (self.dockerName))
+
         stringCmd = "docker create -it --privileged -p %s:8300:830 -p %s:2200:22 --name=%s --network=%s yumatest" % \
                     (self.managementIPAddressString, self.managementIPAddressString, self.dockerName, self.networkName)
         cmd = subprocess.Popen(stringCmd, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
@@ -139,7 +141,10 @@ class NetworkElement:
         logger.debug("Created docker container %s having IP=%s", self.dockerName, self.managementIPAddressString)
 
     def createDockerNetwork(self):
+
         netAddressString = str(self.networkIPAddress.with_prefixlen)
+        print("Creating docker network %s..." % (netAddressString))
+
         stringCmd = "docker network create -d bridge --subnet=%s --ip-range=%s %s" % \
                     (netAddressString, netAddressString, self.networkName)
         cmd = subprocess.Popen(stringCmd, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
@@ -183,11 +188,10 @@ class NetworkElement:
             raise RuntimeError
 
     def addNetworkElement(self):
+        print("Adding Network element %s..." % (self.uuid))
         self.buildCoreModelXml()
         self.createInterfaces()
         self.createDockerNetwork()
         self.createDockerContainer()
         self.copyXmlConfigFileToDockerContainer()
         self.startDockerContainer()
-        #debug purposes
-        self.xmlConfigurationTree.write("output" + self.uuid + ".xml")
