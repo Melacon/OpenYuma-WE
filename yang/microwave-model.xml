@@ -1,0 +1,1331 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<default-values-mediator>
+<module name="microwave-model">
+    <mw-air-interface-pac key="layer-protocol">
+       <layer-protocol/>
+       <air-interface-capability>
+          <type-of-equipment>Type of equipment not yet defined.</type-of-equipment>
+          <tx-frequency-min>-1</tx-frequency-min>
+          <tx-frequency-max>-1</tx-frequency-max>
+          <rx-frequency-min>-1</rx-frequency-min>
+          <rx-frequency-max>-1</rx-frequency-max>
+          <adaptive-modulation-is-avail>false</adaptive-modulation-is-avail>
+          <mimo-is-avail>false</mimo-is-avail>
+          <mimo-channels>1</mimo-channels>
+          <alic-is-avail>false</alic-is-avail>
+          <atpc-is-avail>false</atpc-is-avail>
+          <atpc-range>0</atpc-range>
+          <encryption-is-avail>false</encryption-is-avail>
+          <supported-loop-back-kind-list/>
+          <maintenance-timer-range>Range of the maintenance timer not yet defined.</maintenance-timer-range>
+          <supported-alarms>Supported alarms not yet defined.</supported-alarms>
+          <supported-channel-plan-list key="supported-channel-plan">
+             <supported-channel-plan/>
+             <duplex-distance-is-variable>false</duplex-distance-is-variable>
+             <duplex-distance>-1</duplex-distance>
+             <auto-freq-select-is-avail>false</auto-freq-select-is-avail>
+             <transmission-mode-list key="transmission-mode-id">
+                <transmission-mode-id/>
+                <channel-bandwidth>-1</channel-bandwidth>
+                <modulation-scheme>-1</modulation-scheme>
+                <code-rate>-1</code-rate>
+                <tx-power-min>99</tx-power-min>
+                <tx-power-max>99</tx-power-max>
+                <rx-threshold>99</rx-threshold>
+                <am-upshift-level>99</am-upshift-level>
+                <am-downshift-level>99</am-downshift-level>
+                <xpic-is-avail>false</xpic-is-avail>
+             </transmission-mode-list>
+          </supported-channel-plan-list>
+       </air-interface-capability>
+       <air-interface-configuration>
+          <air-interface-name>Air interface ID not yet defined.</air-interface-name>
+          <radio-signal-id>Radio signal ID not yet defined.</radio-signal-id>
+          <tx-frequency>-1</tx-frequency>
+          <rx-frequency>-1</rx-frequency>
+          <tx-channel-bandwidth>-1</tx-channel-bandwidth>
+          <rx-channel-bandwidth>-1</rx-channel-bandwidth>
+          <polarization>not-specified</polarization>
+          <power-is-on>true</power-is-on>
+          <transmitter-is-on>false</transmitter-is-on>
+          <receiver-is-on>true</receiver-is-on>
+          <tx-power>99</tx-power>
+          <adaptive-modulation-is-on>false</adaptive-modulation-is-on>
+          <modulation-min>-1</modulation-min>
+          <modulation-max>-1</modulation-max>
+          <xpic-is-on>false</xpic-is-on>
+          <mimo-is-on>false</mimo-is-on>
+          <alic-is-on>false</alic-is-on>
+          <atpc-is-on>false</atpc-is-on>
+          <atpc-thresh-upper>99</atpc-thresh-upper>
+          <atpc-thresh-lower>99</atpc-thresh-lower>
+          <auto-freq-select-is-on>false</auto-freq-select-is-on>
+          <auto-freq-select-range>-1</auto-freq-select-range>
+          <modulation-is-on>true</modulation-is-on>
+          <encryption-is-on>false</encryption-is-on>
+          <cryptographic-key>Cryptographic key not yet defined.</cryptographic-key>
+          <loop-back-kind-on>non</loop-back-kind-on>
+          <maintenance-timer>-1</maintenance-timer>
+          <problem-kind-severity-list key="problem-kind-name">
+             <problem-kind-name/>
+             <problem-kind-severity>warning</problem-kind-severity>
+          </problem-kind-severity-list>
+       </air-interface-configuration>
+       <air-interface-status>
+          <tx-frequency-cur>-1</tx-frequency-cur>
+          <rx-frequency-cur>-1</rx-frequency-cur>
+          <tx-level-cur>99</tx-level-cur>
+          <rx-level-cur>99</rx-level-cur>
+          <modulation-cur>-1</modulation-cur>
+          <code-rate-cur>-1</code-rate-cur>
+          <snir-cur>-99</snir-cur>
+          <xpd-cur>-99</xpd-cur>
+          <rf-temp-cur>-99</rf-temp-cur>
+          <last-status-change>2017-01-01T00:00:00.0Z</last-status-change>
+          <radio-power-is-up>false</radio-power-is-up>
+          <link-is-up>false</link-is-up>
+          <xpic-is-up>false</xpic-is-up>
+          <mimo-is-up>false</mimo-is-up>
+          <alic-is-up>false</alic-is-up>
+          <atpc-is-up>false</atpc-is-up>
+          <auto-freq-select-is-up>false</auto-freq-select-is-up>
+          <loop-back-kind-up>non</loop-back-kind-up>
+          <local-end-point-id>not-supported</local-end-point-id>
+          <remote-end-point-id>not-supported</remote-end-point-id>
+       </air-interface-status>
+       <air-interface-current-problems>
+          <current-problem-list key="sequence-number">
+             <problem-name>Problem name not specified.</problem-name>
+             <sequence-number/>
+             <time-stamp>2017-01-01T00:00:00.0Z</time-stamp>
+             <problem-severity>warning</problem-severity>
+          </current-problem-list>
+       </air-interface-current-problems>
+       <air-interface-current-performance>
+          <current-performance-data-list key="scanner-id">
+             <performance-data>
+                <es>-1</es>
+                <ses>-1</ses>
+                <cses>-1</cses>
+                <unavailability>-1</unavailability>
+                <tx-level-min>99</tx-level-min>
+                <tx-level-max>99</tx-level-max>
+                <tx-level-avg>99</tx-level-avg>
+                <rx-level-min>99</rx-level-min>
+                <rx-level-max>99</rx-level-max>
+                <rx-level-avg>99</rx-level-avg>
+                <time2-states>-1</time2-states>
+                <time4-states-s>-1</time4-states-s>
+                <time4-states>-1</time4-states>
+                <time8-states>-1</time8-states>
+                <time16-states-s>-1</time16-states-s>
+                <time16-states>-1</time16-states>
+                <time32-states>-1</time32-states>
+                <time64-states>-1</time64-states>
+                <time128-states>-1</time128-states>
+                <time256-states>-1</time256-states>
+                <time512-states>-1</time512-states>
+                <time512-states-l>-1</time512-states-l>
+                <time1024-states>-1</time1024-states>
+                <time1024-states-l>-1</time1024-states-l>
+                <time2048-states>-1</time2048-states>
+                <time2048-states-l>-1</time2048-states-l>
+                <time4096-states>-1</time4096-states>
+                <time4096-states-l>-1</time4096-states-l>
+                <time8192-states>-1</time8192-states>
+                <time8192-states-l>-1</time8192-states-l>
+                <snir-min>-99</snir-min>
+                <snir-max>-99</snir-max>
+                <snir-avg>-99</snir-avg>
+                <xpd-min>-99</xpd-min>
+                <xpd-max>-99</xpd-max>
+                <xpd-avg>-99</xpd-avg>
+                <rf-temp-min>-99</rf-temp-min>
+                <rf-temp-max>-99</rf-temp-max>
+                <rf-temp-avg>-99</rf-temp-avg>
+                <defect-blocks-sum>-1</defect-blocks-sum>
+                <time-period>-1</time-period>
+             </performance-data>
+             <timestamp/>
+             <suspect-interval-flag/>
+             <elapsed-time/>
+             <scanner-id/>
+             <granularity-period/>
+             <administrative-state/>
+             <object-class/>
+             <name-binding/>
+          </current-performance-data-list>
+       </air-interface-current-performance>
+       <air-interface-historical-performances>
+          <historical-performance-data-list key="history-data-id">
+             <performance-data>
+                <es>-1</es>
+                <ses>-1</ses>
+                <cses>-1</cses>
+                <unavailability>-1</unavailability>
+                <tx-level-min>99</tx-level-min>
+                <tx-level-max>99</tx-level-max>
+                <tx-level-avg>99</tx-level-avg>
+                <rx-level-min>99</rx-level-min>
+                <rx-level-max>99</rx-level-max>
+                <rx-level-avg>99</rx-level-avg>
+                <time2-states>-1</time2-states>
+                <time4-states-s>-1</time4-states-s>
+                <time4-states>-1</time4-states>
+                <time8-states>-1</time8-states>
+                <time16-states-s>-1</time16-states-s>
+                <time16-states>-1</time16-states>
+                <time32-states>-1</time32-states>
+                <time64-states>-1</time64-states>
+                <time128-states>-1</time128-states>
+                <time256-states>-1</time256-states>
+                <time512-states>-1</time512-states>
+                <time512-states-l>-1</time512-states-l>
+                <time1024-states>-1</time1024-states>
+                <time1024-states-l>-1</time1024-states-l>
+                <time2048-states>-1</time2048-states>
+                <time2048-states-l>-1</time2048-states-l>
+                <time4096-states>-1</time4096-states>
+                <time4096-states-l>-1</time4096-states-l>
+                <time8192-states>-1</time8192-states>
+                <time8192-states-l>-1</time8192-states-l>
+                <snir-min>-99</snir-min>
+                <snir-max>-99</snir-max>
+                <snir-avg>-99</snir-avg>
+                <xpd-min>-99</xpd-min>
+                <xpd-max>-99</xpd-max>
+                <xpd-avg>-99</xpd-avg>
+                <rf-temp-min>-99</rf-temp-min>
+                <rf-temp-max>-99</rf-temp-max>
+                <rf-temp-avg>-99</rf-temp-avg>
+                <defect-blocks-sum>-1</defect-blocks-sum>
+                <time-period>-1</time-period>
+             </performance-data>
+             <suspect-interval-flag>false</suspect-interval-flag>
+             <history-data-id/>
+             <period-end-time/>
+             <granularity-period/>
+             <object-class/>
+             <name-binding/>
+          </historical-performance-data-list>
+       </air-interface-historical-performances>
+    </mw-air-interface-pac>
+    <co-channel-group>
+       <co-channel-group-id/>
+       <air-interface-list/>
+       <sort-of-co-channel-group>Kind of co-channel group not specified.</sort-of-co-channel-group>
+       <logical-termination-point/>
+    </co-channel-group>
+    <mw-air-interface-hsb-end-point-pac key="endpoint">
+       <role>working</role>
+       <endpoint/>
+    </mw-air-interface-hsb-end-point-pac>
+    <mw-air-interface-hsb-fc-switch-pac key="fcswitch">
+       <prot-type>hsb</prot-type>
+       <air-interface-hsb-configuration-is-faulty-severity>warning</air-interface-hsb-configuration-is-faulty-severity>
+       <air-interface-hsb-is-partly-down-severity>warning</air-interface-hsb-is-partly-down-severity>
+       <air-interface-hsb-is-down-severity>warning</air-interface-hsb-is-down-severity>
+       <fcswitch/>
+    </mw-air-interface-hsb-fc-switch-pac>
+    <mw-air-interface-diversity-pac key="layer-protocol">
+       <layer-protocol/>
+       <air-interface-diversity-capability>
+          <available-kinds-of-diversity key="diversity-name">
+             <diversity-name/>
+             <number-of-air-interfaces-max>1</number-of-air-interfaces-max>
+          </available-kinds-of-diversity>
+          <supported-alarms>Supported alarms not yet defined.</supported-alarms>
+       </air-interface-diversity-capability>
+       <air-interface-diversity-configuration>
+          <air-interface-diversity>
+             <diversity-name>Diversity name not defined.</diversity-name>
+             <number-of-air-interfaces-max>1</number-of-air-interfaces-max>
+          </air-interface-diversity>
+          <air-interface-ltp-list/>
+          <problem-kind-severity-list key="problem-kind-name">
+             <problem-kind-name/>
+             <problem-kind-severity>warning</problem-kind-severity>
+          </problem-kind-severity-list>
+       </air-interface-diversity-configuration>
+       <air-interface-diversity-status>
+          <snir-cur>-99</snir-cur>
+          <air-interface-diversity-status>group-down</air-interface-diversity-status>
+          <last-status-change>2017-01-01T00:00:00.0Z</last-status-change>
+       </air-interface-diversity-status>
+       <air-interface-diversity-current-problems>
+          <current-problem-list key="sequence-number">
+             <problem-name>Problem name not specified.</problem-name>
+             <sequence-number/>
+             <time-stamp>2017-01-01T00:00:00.0Z</time-stamp>
+             <problem-severity>warning</problem-severity>
+          </current-problem-list>
+       </air-interface-diversity-current-problems>
+       <air-interface-diversity-current-performance>
+          <current-performance-data-list key="scanner-id">
+             <performance-data>
+                <snir-min>-99</snir-min>
+                <snir-max>-99</snir-max>
+                <snir-avg>-99</snir-avg>
+             </performance-data>
+             <timestamp/>
+             <suspect-interval-flag/>
+             <elapsed-time/>
+             <scanner-id/>
+             <granularity-period/>
+             <administrative-state/>
+             <object-class/>
+             <name-binding/>
+          </current-performance-data-list>
+       </air-interface-diversity-current-performance>
+       <air-interface-diversity-historical-performances>
+          <historical-performance-data-list key="history-data-id">
+             <performance-data>
+                <snir-min>-99</snir-min>
+                <snir-max>-99</snir-max>
+                <snir-avg>-99</snir-avg>
+             </performance-data>
+             <suspect-interval-flag>false</suspect-interval-flag>
+             <history-data-id/>
+             <period-end-time/>
+             <granularity-period/>
+             <object-class/>
+             <name-binding/>
+          </historical-performance-data-list>
+       </air-interface-diversity-historical-performances>
+    </mw-air-interface-diversity-pac>
+    <mw-pure-ethernet-structure-pac key="layer-protocol" features="pure-ethernet">
+       <layer-protocol/>
+       <pure-ethernet-structure-capability>
+          <structure-id/>
+          <supported-alarms>Supported alarms not yet defined.</supported-alarms>
+       </pure-ethernet-structure-capability>
+       <pure-ethernet-structure-configuration>
+          <problem-kind-severity-list key="problem-kind-name">
+             <problem-kind-name/>
+             <problem-kind-severity>warning</problem-kind-severity>
+          </problem-kind-severity-list>
+       </pure-ethernet-structure-configuration>
+       <pure-ethernet-structure-status>
+          <segment-status-list>
+             <segment-status-type-id/>
+             <segment-is-reserved-for-tdm>false</segment-is-reserved-for-tdm>
+             <operational-status>disabled</operational-status>
+             <obsolete-priority-class>-1</obsolete-priority-class>
+             <obsolete-drop-order-rank>-1</obsolete-drop-order-rank>
+          </segment-status-list>
+          <last-status-change>2017-01-01T00:00:00.0Z</last-status-change>
+       </pure-ethernet-structure-status>
+       <pure-ethernet-structure-current-problems>
+          <current-problem-list key="sequence-number">
+             <problem-name>Problem name not specified.</problem-name>
+             <sequence-number/>
+             <time-stamp>2017-01-01T00:00:00.0Z</time-stamp>
+             <problem-severity>warning</problem-severity>
+          </current-problem-list>
+       </pure-ethernet-structure-current-problems>
+       <pure-ethernet-structure-current-performance>
+          <current-performance-data-list key="scanner-id">
+             <performance-data/>
+             <timestamp/>
+             <suspect-interval-flag/>
+             <elapsed-time/>
+             <scanner-id/>
+             <granularity-period/>
+             <administrative-state/>
+             <object-class/>
+             <name-binding/>
+          </current-performance-data-list>
+       </pure-ethernet-structure-current-performance>
+       <pure-ethernet-structure-historical-performances>
+          <historical-performance-data-list key="history-data-id">
+             <performance-data/>
+             <suspect-interval-flag>false</suspect-interval-flag>
+             <history-data-id/>
+             <period-end-time/>
+             <granularity-period/>
+             <object-class/>
+             <name-binding/>
+          </historical-performance-data-list>
+       </pure-ethernet-structure-historical-performances>
+    </mw-pure-ethernet-structure-pac>
+    <mw-hybrid-mw-structure-pac key="layer-protocol" features="hybrid-microwave">
+       <layer-protocol/>
+       <hybrid-mw-structure-capability>
+          <structure-id/>
+          <supported-tdm-structure-types-list key="tdm-structure-name">
+             <tdm-structure-name/>
+             <tdm-segment-size>-1</tdm-segment-size>
+             <max-number-of-segments-reservable>-1</max-number-of-segments-reservable>
+          </supported-tdm-structure-types-list>
+          <supported-alarms>Supported alarms not yet defined.</supported-alarms>
+       </hybrid-mw-structure-capability>
+       <hybrid-mw-structure-configuration>
+          <structure-type>
+             <tdm-structure-name>TDM structure name not defined.</tdm-structure-name>
+             <tdm-segment-size>-1</tdm-segment-size>
+             <max-number-of-segments-reservable>-1</max-number-of-segments-reservable>
+          </structure-type>
+          <number-of-tdm-segments-to-be-reserved>-1</number-of-tdm-segments-to-be-reserved>
+          <problem-kind-severity-list key="problem-kind-name">
+             <problem-kind-name/>
+             <problem-kind-severity>warning</problem-kind-severity>
+          </problem-kind-severity-list>
+       </hybrid-mw-structure-configuration>
+       <hybrid-mw-structure-status>
+          <segment-status-list key="segment-status-type-id">
+             <segment-status-type-id/>
+             <segment-is-reserved-for-tdm>false</segment-is-reserved-for-tdm>
+             <operational-status>disabled</operational-status>
+             <obsolete-priority-class>-1</obsolete-priority-class>
+             <obsolete-drop-order-rank>-1</obsolete-drop-order-rank>
+          </segment-status-list>
+          <last-status-change>2017-01-01T00:00:00.0Z</last-status-change>
+       </hybrid-mw-structure-status>
+       <hybrid-mw-structure-current-problems>
+          <current-problem-list key="sequence-number">
+             <problem-name>Problem name not specified.</problem-name>
+             <sequence-number/>
+             <time-stamp>2017-01-01T00:00:00.0Z</time-stamp>
+             <problem-severity>warning</problem-severity>
+          </current-problem-list>
+       </hybrid-mw-structure-current-problems>
+       <hybrid-mw-structure-current-performance>
+          <current-performance-data-list key="scanner-id">
+             <performance-data/>
+             <timestamp/>
+             <suspect-interval-flag/>
+             <elapsed-time/>
+             <scanner-id/>
+             <granularity-period/>
+             <administrative-state/>
+             <object-class/>
+             <name-binding/>
+          </current-performance-data-list>
+       </hybrid-mw-structure-current-performance>
+       <hybrid-mw-structure-historical-performances>
+          <historical-performance-data-list key="history-data-id">
+             <performance-data/>
+             <suspect-interval-flag>false</suspect-interval-flag>
+             <history-data-id/>
+             <period-end-time/>
+             <granularity-period/>
+             <object-class/>
+             <name-binding/>
+          </historical-performance-data-list>
+       </hybrid-mw-structure-historical-performances>
+    </mw-hybrid-mw-structure-pac>
+    <mw-ethernet-container-pac key="layer-protocol">
+       <layer-protocol/>
+       <ethernet-container-capability>
+          <bundling-is-avail>false</bundling-is-avail>
+          <packet-compression-is-avail>false</packet-compression-is-avail>
+          <layer2-compression-is-avail>false</layer2-compression-is-avail>
+          <vlan-compression-is-avail>false</vlan-compression-is-avail>
+          <q-in-q-compression-is-avail>false</q-in-q-compression-is-avail>
+          <mpls-compression-is-avail>false</mpls-compression-is-avail>
+          <ipv4-compression-is-avail>false</ipv4-compression-is-avail>
+          <ipv6-compression-is-avail>false</ipv6-compression-is-avail>
+          <layer4-compression-is-avail>false</layer4-compression-is-avail>
+          <encryption-is-avail>false</encryption-is-avail>
+          <supported-alarms>Supported alarms not yet defined.</supported-alarms>
+       </ethernet-container-capability>
+       <ethernet-container-configuration>
+          <container-id>No Ethernet Flow associated yet.</container-id>
+          <segments-id-list key="structure-id-ref segment-id-ref">
+             <structure-id-ref/>
+             <segment-id-ref/>
+          </segments-id-list>
+          <packet-compression-is-on>false</packet-compression-is-on>
+          <layer2-compression-is-on>false</layer2-compression-is-on>
+          <vlan-compression-is-on>false</vlan-compression-is-on>
+          <q-in-q-compression-is-on>false</q-in-q-compression-is-on>
+          <mpls-compression-is-on>false</mpls-compression-is-on>
+          <ipv4-compression-is-on>false</ipv4-compression-is-on>
+          <ipv6-compression-is-on>false</ipv6-compression-is-on>
+          <layer4-compression-is-on>false</layer4-compression-is-on>
+          <encryption-is-on>false</encryption-is-on>
+          <cryptographic-key>Cryptographic key not yet defined.</cryptographic-key>
+          <problem-kind-severity-list key="problem-kind-name">
+             <problem-kind-name/>
+             <problem-kind-severity>warning</problem-kind-severity>
+          </problem-kind-severity-list>
+       </ethernet-container-configuration>
+       <ethernet-container-status>
+          <last-status-change>2017-01-01T00:00:00.0Z</last-status-change>
+       </ethernet-container-status>
+       <ethernet-container-current-problems>
+          <current-problem-list key="sequence-number">
+             <problem-name>Problem name not specified.</problem-name>
+             <sequence-number/>
+             <time-stamp>2017-01-01T00:00:00.0Z</time-stamp>
+             <problem-severity>warning</problem-severity>
+          </current-problem-list>
+       </ethernet-container-current-problems>
+       <ethernet-container-current-performance>
+          <current-performance-data-list key="scanner-id">
+             <performance-data>
+                <tx-ethernet-bytes-max-s>-1</tx-ethernet-bytes-max-s>
+                <tx-ethernet-bytes-max-m>-1</tx-ethernet-bytes-max-m>
+                <tx-ethernet-bytes-sum>-1</tx-ethernet-bytes-sum>
+                <time-period>-1</time-period>
+             </performance-data>
+             <timestamp/>
+             <suspect-interval-flag/>
+             <elapsed-time/>
+             <scanner-id/>
+             <granularity-period/>
+             <administrative-state/>
+             <object-class/>
+             <name-binding/>
+          </current-performance-data-list>
+       </ethernet-container-current-performance>
+       <ethernet-container-historical-performances>
+          <historical-performance-data-list key="history-data-id">
+             <performance-data>
+                <tx-ethernet-bytes-max-s>-1</tx-ethernet-bytes-max-s>
+                <tx-ethernet-bytes-max-m>-1</tx-ethernet-bytes-max-m>
+                <tx-ethernet-bytes-sum>-1</tx-ethernet-bytes-sum>
+                <time-period>-1</time-period>
+             </performance-data>
+             <suspect-interval-flag>false</suspect-interval-flag>
+             <history-data-id/>
+             <period-end-time/>
+             <granularity-period/>
+             <object-class/>
+             <name-binding/>
+          </historical-performance-data-list>
+       </ethernet-container-historical-performances>
+    </mw-ethernet-container-pac>
+    <mw-tdm-container-pac key="layer-protocol" features="hybrid-microwave">
+       <layer-protocol/>
+       <tdm-container-capability>
+          <supported-tdm-container-types-list key="tdm-container-name">
+             <tdm-container-name/>
+             <tdm-container-size>-1</tdm-container-size>
+          </supported-tdm-container-types-list>
+          <supported-alarms>Supported alarms not yet defined.</supported-alarms>
+       </tdm-container-capability>
+       <tdm-container-configuration>
+          <container-id>No TDM Flow associated yet.</container-id>
+          <container-type>
+             <tdm-container-name>TDM container name not defined.</tdm-container-name>
+             <tdm-container-size>-1</tdm-container-size>
+          </container-type>
+          <segment-id>
+             <structure-id-ref/>
+             <segment-id-ref/>
+          </segment-id>
+          <problem-kind-severity-list key="problem-kind-name">
+             <problem-kind-name/>
+             <problem-kind-severity>warning</problem-kind-severity>
+          </problem-kind-severity-list>
+       </tdm-container-configuration>
+       <tdm-container-status>
+          <last-status-change>2017-01-01T00:00:00.0Z</last-status-change>
+       </tdm-container-status>
+       <tdm-container-current-problems>
+          <current-problem-list key="sequence-number">
+             <problem-name>Problem name not specified.</problem-name>
+             <sequence-number/>
+             <time-stamp>2017-01-01T00:00:00.0Z</time-stamp>
+             <problem-severity>warning</problem-severity>
+          </current-problem-list>
+       </tdm-container-current-problems>
+       <tdm-container-current-performance>
+          <current-performance-data-list key="scanner-id">
+             <performance-data>
+                <tx-ethernet-bytes-max-s>-1</tx-ethernet-bytes-max-s>
+                <tx-ethernet-bytes-max-m>-1</tx-ethernet-bytes-max-m>
+                <tx-ethernet-bytes-sum>-1</tx-ethernet-bytes-sum>
+                <time-period>-1</time-period>
+             </performance-data>
+             <timestamp/>
+             <suspect-interval-flag/>
+             <elapsed-time/>
+             <scanner-id/>
+             <granularity-period/>
+             <administrative-state/>
+             <object-class/>
+             <name-binding/>
+          </current-performance-data-list>
+       </tdm-container-current-performance>
+       <tdm-container-historical-performances>
+          <historical-performance-data-list key="history-data-id">
+             <performance-data>
+                <tx-ethernet-bytes-max-s>-1</tx-ethernet-bytes-max-s>
+                <tx-ethernet-bytes-max-m>-1</tx-ethernet-bytes-max-m>
+                <tx-ethernet-bytes-sum>-1</tx-ethernet-bytes-sum>
+                <time-period>-1</time-period>
+             </performance-data>
+             <suspect-interval-flag>false</suspect-interval-flag>
+             <history-data-id/>
+             <period-end-time/>
+             <granularity-period/>
+             <object-class/>
+             <name-binding/>
+          </historical-performance-data-list>
+       </tdm-container-historical-performances>
+    </mw-tdm-container-pac>
+
+  <notifications>
+    <object-creation-notification>
+       <counter>-1</counter>
+       <time-stamp>2017-01-01T00:00:00.0Z</time-stamp>
+       <object-id-ref/>
+       <object-type>Type of created object not specified.</object-type>
+    </object-creation-notification>
+    <object-deletion-notification>
+       <counter>-1</counter>
+       <time-stamp>2017-01-01T00:00:00.0Z</time-stamp>
+       <object-id-ref/>
+    </object-deletion-notification>
+    <attribute-value-changed-notification>
+       <counter>-1</counter>
+       <time-stamp>2017-01-01T00:00:00.0Z</time-stamp>
+       <object-id-ref/>
+       <attribute-name>Attribute name not specified.</attribute-name>
+       <new-value>New value not specified.</new-value>
+    </attribute-value-changed-notification>
+    <problem-notification>
+       <counter>-1</counter>
+       <time-stamp>2017-01-01T00:00:00.0Z</time-stamp>
+       <object-id-ref/>
+       <problem>Problem name not specified.</problem>
+       <severity>warning</severity>
+    </problem-notification>
+  </notifications>
+</module>
+<module name="core-model">
+    <network-element>
+       <fd key="uuid">
+          <layer-protocol-name/>
+          <lower-level-fd/>
+          <fc/>
+          <ltp/>
+          <lower-level-link/>
+          <local-id key="value-name">
+             <value-name/>
+             <value/>
+          </local-id>
+          <uuid/>
+          <name key="value-name">
+             <value-name/>
+             <value/>
+          </name>
+          <label key="value-name">
+             <value-name/>
+             <value/>
+          </label>
+          <extension key="value-name">
+             <value-name/>
+             <value/>
+          </extension>
+          <operational-state/>
+          <administrative-control/>
+          <administrative-state/>
+          <lifecycle-state/>
+       </fd>
+       <ltp key="uuid">
+          <server-ltp/>
+          <client-ltp/>
+          <lp key="uuid">
+             <layer-protocol-name/>
+             <configured-client-capacity/>
+             <lp-direction/>
+             <termination-state/>
+             <config-and-switch-controller key="switch-rule">
+                <switch-rule/>
+                <fc-switch/>
+                <control-parameters>
+                   <reversion-mode/>
+                   <wait-to-revert-time>15</wait-to-revert-time>
+                   <prot-type/>
+                   <hold-off-time/>
+                   <network-scheme-specification/>
+                </control-parameters>
+                <profile-proxy/>
+                <local-pac>
+                   <local-id key="value-name">
+                      <value-name/>
+                      <value/>
+                   </local-id>
+                   <uuid/>
+                   <name key="value-name">
+                      <value-name/>
+                      <value/>
+                   </name>
+                   <label key="value-name">
+                      <value-name/>
+                      <value/>
+                   </label>
+                   <extension key="value-name">
+                      <value-name/>
+                      <value/>
+                   </extension>
+                   <operational-state/>
+                   <administrative-control/>
+                   <administrative-state/>
+                   <lifecycle-state/>
+                </local-pac>
+                <global-pac>
+                   <local-id key="value-name">
+                      <value-name/>
+                      <value/>
+                   </local-id>
+                   <uuid/>
+                   <name key="value-name">
+                      <value-name/>
+                      <value/>
+                   </name>
+                   <label key="value-name">
+                      <value-name/>
+                      <value/>
+                   </label>
+                   <extension key="value-name">
+                      <value-name/>
+                      <value/>
+                   </extension>
+                   <operational-state/>
+                   <administrative-control/>
+                   <administrative-state/>
+                   <lifecycle-state/>
+                </global-pac>
+                <is-frozen/>
+                <is-coordinated-switching-both-ends/>
+                <subordinate-controller/>
+             </config-and-switch-controller>
+             <is-protection-lock-out features="protection-exclude-ltp"/>
+             <fc-blocks-signal-to-lp/>
+             <local-id key="value-name">
+                <value-name/>
+                <value/>
+             </local-id>
+             <uuid/>
+             <name key="value-name">
+                <value-name/>
+                <value/>
+             </name>
+             <label key="value-name">
+                <value-name/>
+                <value/>
+             </label>
+             <extension key="value-name">
+                <value-name/>
+                <value/>
+             </extension>
+             <operational-state/>
+             <administrative-control/>
+             <administrative-state/>
+             <lifecycle-state/>
+          </lp>
+          <connected-ltp/>
+          <peer-ltp/>
+          <physical-port-reference/>
+          <ltp-in-other-view/>
+          <ltp-direction/>
+          <local-id key="value-name">
+             <value-name/>
+             <value/>
+          </local-id>
+          <uuid/>
+          <name key="value-name">
+             <value-name/>
+             <value/>
+          </name>
+          <label key="value-name">
+             <value-name/>
+             <value/>
+          </label>
+          <extension key="value-name">
+             <value-name/>
+             <value/>
+          </extension>
+          <operational-state/>
+          <administrative-control/>
+          <administrative-state/>
+          <lifecycle-state/>
+       </ltp>
+       <local-id key="value-name">
+          <value-name/>
+          <value/>
+       </local-id>
+       <uuid/>
+       <name key="value-name">
+          <value-name/>
+          <value/>
+       </name>
+       <label key="value-name">
+          <value-name/>
+          <value/>
+       </label>
+       <extension key="value-name">
+          <value-name/>
+          <value/>
+       </extension>
+       <operational-state/>
+       <administrative-control/>
+       <administrative-state/>
+       <lifecycle-state/>
+    </network-element>
+    <forwarding-construct key="uuid">
+       <layer-protocol-name/>
+       <lower-level-fc/>
+       <fc-route/>
+       <fc-port key="uuid">
+          <ltp/>
+          <role/>
+          <fc-port-direction/>
+          <is-protection-lock-out features="protection-exclude-fc-port"/>
+          <selection-priority/>
+          <is-internal-port/>
+          <fc-route-feeds-fc-port-egress/>
+          <local-id key="value-name">
+             <value-name/>
+             <value/>
+          </local-id>
+          <uuid/>
+          <name key="value-name">
+             <value-name/>
+             <value/>
+          </name>
+          <label key="value-name">
+             <value-name/>
+             <value/>
+          </label>
+          <extension key="value-name">
+             <value-name/>
+             <value/>
+          </extension>
+          <operational-state/>
+          <administrative-control/>
+          <administrative-state/>
+          <lifecycle-state/>
+       </fc-port>
+       <fc-switch key="uuid">
+          <hold-off-time/>
+          <prot-type/>
+          <reversion-mode/>
+          <selected-fc-port/>
+          <profile-proxy/>
+          <internal-configuration-and-switch-control>
+             <switch-rule/>
+             <fc-switch/>
+             <control-parameters>
+                <reversion-mode/>
+                <wait-to-revert-time>15</wait-to-revert-time>
+                <prot-type/>
+                <hold-off-time/>
+                <network-scheme-specification/>
+             </control-parameters>
+             <profile-proxy/>
+             <local-pac>
+                <local-id key="value-name">
+                   <value-name/>
+                   <value/>
+                </local-id>
+                <uuid/>
+                <name key="value-name">
+                   <value-name/>
+                   <value/>
+                </name>
+                <label key="value-name">
+                   <value-name/>
+                   <value/>
+                </label>
+                <extension key="value-name">
+                   <value-name/>
+                   <value/>
+                </extension>
+                <operational-state/>
+                <administrative-control/>
+                <administrative-state/>
+                <lifecycle-state/>
+             </local-pac>
+             <global-pac>
+                <local-id key="value-name">
+                   <value-name/>
+                   <value/>
+                </local-id>
+                <uuid/>
+                <name key="value-name">
+                   <value-name/>
+                   <value/>
+                </name>
+                <label key="value-name">
+                   <value-name/>
+                   <value/>
+                </label>
+                <extension key="value-name">
+                   <value-name/>
+                   <value/>
+                </extension>
+                <operational-state/>
+                <administrative-control/>
+                <administrative-state/>
+                <lifecycle-state/>
+             </global-pac>
+             <is-frozen/>
+             <is-coordinated-switching-both-ends/>
+             <subordinate-controller/>
+          </internal-configuration-and-switch-control>
+          <switch-control/>
+          <switch-selects-ports/>
+          <switch-selection-reason/>
+          <control-parameters>
+             <reversion-mode/>
+             <wait-to-revert-time>15</wait-to-revert-time>
+             <prot-type/>
+             <hold-off-time/>
+             <network-scheme-specification/>
+          </control-parameters>
+          <wait-to-restore-time/>
+          <local-id key="value-name">
+             <value-name/>
+             <value/>
+          </local-id>
+          <uuid/>
+          <name key="value-name">
+             <value-name/>
+             <value/>
+          </name>
+          <label key="value-name">
+             <value-name/>
+             <value/>
+          </label>
+          <extension key="value-name">
+             <value-name/>
+             <value/>
+          </extension>
+          <operational-state/>
+          <administrative-control/>
+          <administrative-state/>
+          <lifecycle-state/>
+       </fc-switch>
+       <forwarding-direction/>
+       <is-protection-lock-out features="protection-exclude-server"/>
+       <service-priority/>
+       <supported-link/>
+       <local-id key="value-name">
+          <value-name/>
+          <value/>
+       </local-id>
+       <uuid/>
+       <name key="value-name">
+          <value-name/>
+          <value/>
+       </name>
+       <label key="value-name">
+          <value-name/>
+          <value/>
+       </label>
+       <extension key="value-name">
+          <value-name/>
+          <value/>
+       </extension>
+       <operational-state/>
+       <administrative-control/>
+       <administrative-state/>
+       <lifecycle-state/>
+    </forwarding-construct>
+    <operation-envelope>
+       <operation-set key="effort-and-action">
+          <after-operation-set/>
+          <before-operation-set/>
+          <effort-and-action/>
+          <pause-resume-rule/>
+          <operationset/>
+          <is-short-lived>true</is-short-lived>
+          <operation-details key="action-verb">
+             <action-verb/>
+             <necessary-initialcondition-constraints key="is-not">
+                <is-not/>
+             </necessary-initialcondition-constraints>
+          </operation-details>
+       </operation-set>
+       <generaldirectives>
+       </generaldirectives>
+       <operationidentifiers>
+       </operationidentifiers>
+    </operation-envelope>
+    <equipment key="uuid">
+       <connector key="uuid">
+          <connector/>
+          <pin key="position">
+             <position/>
+             <orientation/>
+          </pin>
+          <orientation/>
+          <manufactured-thing>
+             <manufacturer-properties>
+                <manufacturer-identifier/>
+                <manufacturer-name/>
+             </manufacturer-properties>
+             <equipment-type>
+                <description/>
+                <model-identifier/>
+                <part-type-identifier/>
+                <type-name/>
+                <version/>
+             </equipment-type>
+             <equipment-instance>
+                <manufacture-date/>
+                <serial-number/>
+                <asset-instance-identifier/>
+             </equipment-instance>
+             <operator-augmented-equipment-type>
+                <asset-type-identifier/>
+             </operator-augmented-equipment-type>
+          </manufactured-thing>
+          <position>
+             <relative-position/>
+          </position>
+          <mechanical-features>
+          </mechanical-features>
+          <pin-layout>
+             <position key="relative-position">
+                <relative-position/>
+             </position>
+          </pin-layout>
+          <connector-type/>
+          <local-id key="value-name">
+             <value-name/>
+             <value/>
+          </local-id>
+          <uuid/>
+          <name key="value-name">
+             <value-name/>
+             <value/>
+          </name>
+          <label key="value-name">
+             <value-name/>
+             <value/>
+          </label>
+          <extension key="value-name">
+             <value-name/>
+             <value/>
+          </extension>
+          <operational-state/>
+          <administrative-control/>
+          <administrative-state/>
+          <lifecycle-state/>
+       </connector>
+       <contained-holder key="uuid">
+          <connector/>
+          <occupying-fru/>
+          <spatial-properties-of-type>
+             <height/>
+             <width/>
+             <length/>
+          </spatial-properties-of-type>
+          <holder-monitors>
+             <is-active/>
+             <is-actual-mismatch-with-expected/>
+             <aggregate-function/>
+          </holder-monitors>
+          <holder-location>
+             <address-name/>
+             <address-element key="uuid">
+                <address-element-name/>
+                <local-id>
+                   <class-of-instance/>
+                   <local-id>
+                      <value-name/>
+                      <value/>
+                   </local-id>
+                </local-id>
+                <uuid/>
+                <name>
+                   <class-of-instance/>
+                   <name>
+                      <value-name/>
+                      <value/>
+                   </name>
+                </name>
+                <arbitrary-element/>
+             </address-element>
+          </holder-location>
+          <position>
+             <relative-position/>
+          </position>
+          <holder-structure>
+             <holder-category/>
+             <is-captive/>
+             <is-guided/>
+             <is-quantized-space/>
+          </holder-structure>
+          <physical-rating>
+             <thermal-rating/>
+             <power-rating/>
+          </physical-rating>
+          <supported-equipment/>
+          <expected-holder>
+          </expected-holder>
+          <actual-holder>
+          </actual-holder>
+          <local-id key="value-name">
+             <value-name/>
+             <value/>
+          </local-id>
+          <uuid/>
+          <name key="value-name">
+             <value-name/>
+             <value/>
+          </name>
+          <label key="value-name">
+             <value-name/>
+             <value/>
+          </label>
+          <extension key="value-name">
+             <value-name/>
+             <value/>
+          </extension>
+          <operational-state/>
+          <administrative-control/>
+          <administrative-state/>
+          <lifecycle-state/>
+       </contained-holder>
+       <exposed-cable key="uuid">
+          <connector key="uuid">
+             <connector/>
+             <pin key="position">
+                <position/>
+                <orientation/>
+             </pin>
+             <orientation/>
+             <manufactured-thing>
+                <manufacturer-properties>
+                   <manufacturer-identifier/>
+                   <manufacturer-name/>
+                </manufacturer-properties>
+                <equipment-type>
+                   <description/>
+                   <model-identifier/>
+                   <part-type-identifier/>
+                   <type-name/>
+                   <version/>
+                </equipment-type>
+                <equipment-instance>
+                   <manufacture-date/>
+                   <serial-number/>
+                   <asset-instance-identifier/>
+                </equipment-instance>
+                <operator-augmented-equipment-type>
+                   <asset-type-identifier/>
+                </operator-augmented-equipment-type>
+             </manufactured-thing>
+             <position>
+                <relative-position/>
+             </position>
+             <mechanical-features>
+             </mechanical-features>
+             <pin-layout>
+                <position key="relative-position">
+                   <relative-position/>
+                </position>
+             </pin-layout>
+             <connector-type/>
+             <local-id key="value-name">
+                <value-name/>
+                <value/>
+             </local-id>
+             <uuid/>
+             <name key="value-name">
+                <value-name/>
+                <value/>
+             </name>
+             <label key="value-name">
+                <value-name/>
+                <value/>
+             </label>
+             <extension key="value-name">
+                <value-name/>
+                <value/>
+             </extension>
+             <operational-state/>
+             <administrative-control/>
+             <administrative-state/>
+             <lifecycle-state/>
+          </connector>
+          <manufactured-thing>
+             <manufacturer-properties>
+                <manufacturer-identifier/>
+                <manufacturer-name/>
+             </manufacturer-properties>
+             <equipment-type>
+                <description/>
+                <model-identifier/>
+                <part-type-identifier/>
+                <type-name/>
+                <version/>
+             </equipment-type>
+             <equipment-instance>
+                <manufacture-date/>
+                <serial-number/>
+                <asset-instance-identifier/>
+             </equipment-instance>
+             <operator-augmented-equipment-type>
+                <asset-type-identifier/>
+             </operator-augmented-equipment-type>
+          </manufactured-thing>
+          <physical-characteristics>
+             <weight-characteristics/>
+             <fire-characteristics/>
+             <materials/>
+          </physical-characteristics>
+          <mechanical-features>
+          </mechanical-features>
+          <spatial-properties-of-type>
+             <height/>
+             <width/>
+             <length/>
+          </spatial-properties-of-type>
+          <local-id key="value-name">
+             <value-name/>
+             <value/>
+          </local-id>
+          <uuid/>
+          <name key="value-name">
+             <value-name/>
+             <value/>
+          </name>
+          <label key="value-name">
+             <value-name/>
+             <value/>
+          </label>
+          <extension key="value-name">
+             <value-name/>
+             <value/>
+          </extension>
+          <operational-state/>
+          <administrative-control/>
+          <administrative-state/>
+          <lifecycle-state/>
+       </exposed-cable>
+       <manufactured-thing>
+          <manufacturer-properties>
+             <manufacturer-identifier/>
+             <manufacturer-name/>
+          </manufacturer-properties>
+          <equipment-type>
+             <description/>
+             <model-identifier/>
+             <part-type-identifier/>
+             <type-name/>
+             <version/>
+          </equipment-type>
+          <equipment-instance>
+             <manufacture-date/>
+             <serial-number/>
+             <asset-instance-identifier/>
+          </equipment-instance>
+          <operator-augmented-equipment-type>
+             <asset-type-identifier/>
+          </operator-augmented-equipment-type>
+       </manufactured-thing>
+       <spatial-properties-of-type>
+          <height/>
+          <width/>
+          <length/>
+       </spatial-properties-of-type>
+       <mechanical-features>
+       </mechanical-features>
+       <physical-properties>
+          <temperature/>
+       </physical-properties>
+       <function-enablers>
+          <power-state/>
+       </function-enablers>
+       <mechanical-functions>
+          <rotation-speed/>
+       </mechanical-functions>
+       <physical-characteristics>
+          <weight-characteristics/>
+          <fire-characteristics/>
+          <materials/>
+       </physical-characteristics>
+       <swapability>
+          <is-hot-swappable>true</is-hot-swappable>
+       </swapability>
+       <category>
+          <category/>
+       </category>
+       <physical-rating>
+          <thermal-rating/>
+          <power-rating/>
+       </physical-rating>
+       <is-field-replaceable>true</is-field-replaceable>
+       <function-block/>
+       <expected-equipment>
+       </expected-equipment>
+       <actual-equipment>
+       </actual-equipment>
+       <location>
+          <equipment-location>
+             <address-name/>
+             <address-element key="uuid">
+                <address-element-name/>
+                <local-id>
+                   <class-of-instance/>
+                   <local-id>
+                      <value-name/>
+                      <value/>
+                   </local-id>
+                </local-id>
+                <uuid/>
+                <name>
+                   <class-of-instance/>
+                   <name>
+                      <value-name/>
+                      <value/>
+                   </name>
+                </name>
+                <arbitrary-element/>
+             </address-element>
+          </equipment-location>
+          <geographical-location>
+             <address-name/>
+             <address-element key="uuid">
+                <address-element-name/>
+                <local-id>
+                   <class-of-instance/>
+                   <local-id>
+                      <value-name/>
+                      <value/>
+                   </local-id>
+                </local-id>
+                <uuid/>
+                <name>
+                   <class-of-instance/>
+                   <name>
+                      <value-name/>
+                      <value/>
+                   </name>
+                </name>
+                <arbitrary-element/>
+             </address-element>
+          </geographical-location>
+       </location>
+       <local-id key="value-name">
+          <value-name/>
+          <value/>
+       </local-id>
+       <uuid/>
+       <name key="value-name">
+          <value-name/>
+          <value/>
+       </name>
+       <label key="value-name">
+          <value-name/>
+          <value/>
+       </label>
+       <extension key="value-name">
+          <value-name/>
+          <value/>
+       </extension>
+       <operational-state/>
+       <administrative-control/>
+       <administrative-state/>
+       <lifecycle-state/>
+    </equipment>
+</module>
+</default-values-mediator>
