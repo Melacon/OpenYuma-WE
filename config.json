@@ -1,0 +1,80 @@
+{
+  "network-elements" : [
+    {
+      "network-element" :
+      {
+        "uuid" : "Simulator-1",
+        "interfaces" : [
+          {
+            "layer" : "MWPS",
+            "LTPs" : [{"id": "ifIndex1"}]
+          },
+          {
+            "layer" : "MWS",
+            "LTPs" : []
+          },
+          {
+            "layer" : "ETH",
+            "LTPs" : []
+          }
+        ]
+      }
+    },
+    {
+      "network-element" :
+      {
+        "uuid" : "Simulator-2",
+        "interfaces" : [
+          {
+            "layer" : "MWPS",
+            "LTPs" : [{"id": "ifIndex1"},{"id" : "ifIndex2"}]
+          },
+          {
+            "layer" : "MWS",
+            "LTPs" : []
+          },
+          {
+            "layer" : "ETH",
+            "LTPs" : []
+          }
+          ]
+      }
+    },
+    {
+      "network-element" :
+      {
+        "uuid" : "Simulator-3",
+        "interfaces" : [
+          {
+            "layer" : "MWPS",
+            "LTPs" : [{"id": "ifIndex1"}]
+          },
+          {
+            "layer" : "MWS",
+            "LTPs" : []
+          },
+          {
+            "layer" : "ETH",
+            "LTPs" : []
+          }
+          ]
+      }
+    }
+    ],
+  "topologies" : {
+    "mwps" : {
+      "links" : [
+        [{"uuid" : "Simulator-1", "ltp" : "ifIndex1", "radio-signal-id" : "26"}, {"uuid" : "Simulator-2", "ltp" : "ifIndex1", "radio-signal-id" : "26"}],
+        [{"uuid" : "Simulator-2", "ltp" : "ifIndex2", "radio-signal-id" : "27"}, {"uuid" : "Simulator-3", "ltp" : "ifIndex1", "radio-signal-id" : "27"}]
+        ]
+    },
+    "mws" : {}
+  },
+  "controller" :
+  {
+    "ip-address" : "192.168.254.254",
+    "port" : 8181,
+    "username" : "admin",
+    "password" : "admin"
+  }
+}
