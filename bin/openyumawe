@@ -22,6 +22,7 @@ class EmulatorRunner():
         self.validate = None
         self.topologyJsonFile = None
         self.xmlConfigFile = None
+        self.configJsonFile = None
 
         self.parseArgs()
         self.begin()
@@ -37,6 +38,12 @@ class EmulatorRunner():
             self.xmlConfigFile = value
         else:
             raise Exception('could not find XML configuration file: %s' % value)
+
+    def saveConfigJsonFile(self, _option, _opt_str, value, _parser ):
+        if os.path.isfile(value):
+            self.configJsonFile = value
+        else:
+            raise Exception('could not find JSON configuration file: %s' % value)
 
 
     def parseArgs(self):
@@ -59,8 +66,14 @@ class EmulatorRunner():
         opts.add_option('--xml', '-x', action='callback',
                         callback=self.saveXmlConfigFile,
                         type='string',
-                        help='the file containig the XML configuration'
+                        help='the file containig the XML configuration for the NE'
                         )
+        opts.add_option('--config', action='callback',
+                        callback=self.saveConfigJsonFile,
+                        type='string',
+                        help='the file containig the JSON configuration for the emulator'
+                        )
+
         self.options, self.args = opts.parse_args()
 
         # We don't accept extra arguments after the options
@@ -71,8 +84,12 @@ class EmulatorRunner():
     def begin(self):
         opts = self.options
 
+        if self.configJsonFile is None:
+            print("Configuration JSON file not specified")
+            exit()
+
         if opts.clean:
-            cleanup()
+            cleanup(configFileName = self.configJsonFile)
             exit()
 
         logger.debug("############ Starting emulator...############")
@@ -84,9 +101,8 @@ class EmulatorRunner():
             print("JSON topology file not specified")
             exit()
 
-        e = Emulator(topologyFileName = self.topologyJsonFile, xmlConfigFile = self.xmlConfigFile)
-        e.createNetworkElements()
-        e.createTopologies()
+        e = Emulator(topologyFileName = self.topologyJsonFile, xmlConfigFile = self.xmlConfigFile, configFileName = self.configJsonFile)
+        e.startEmulator()
         print("Emulator started successfully!")
 
 

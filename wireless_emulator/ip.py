@@ -5,11 +5,11 @@ logger = logging.getLogger(__name__)
 
 class ManagementNetworkIPFactory:
 
-    def __init__(self):
-        self.freeNetworkIpList = list(ipaddress.ip_network('192.168.0.0/16').subnets(new_prefix=30))
+    def __init__(self, preferedNetwork):
+        self.freeNetworkIpList = list(ipaddress.ip_network(preferedNetwork).subnets(new_prefix=30))
 
-        logger.debug("ManagementNetworkIPFactory was initialized and has %d free management IP addresses",
-                     len(self.freeNetworkIpList))
+        logger.debug("ManagementNetworkIPFactory was initialized with Network IP %s "
+                     "and has %d free management IP addresses", preferedNetwork, len(self.freeNetworkIpList))
 
     def getFreeManagementNetworkIP(self):
         if len(self.freeNetworkIpList) > 0:
@@ -20,10 +20,10 @@ class ManagementNetworkIPFactory:
 
 class InterfaceIPFactory:
 
-    def __init__(self):
-        self.freeInterfaceIpList = list(ipaddress.ip_network('10.10.0.0/16').subnets(new_prefix=30))
-        logger.debug("InterfaceIPFactory was initialized and has %d free management IP addresses",
-                     len(self.freeInterfaceIpList))
+    def __init__(self, preferedNetwork):
+        self.freeInterfaceIpList = list(ipaddress.ip_network(preferedNetwork).subnets(new_prefix=30))
+        logger.debug("InterfaceIPFactory was initialized with Network IP %s "
+                     "and has %d free management IP addresses", preferedNetwork, len(self.freeInterfaceIpList))
 
     def getFreeInterfaceIp(self):
         if len(self.freeInterfaceIpList) > 0:

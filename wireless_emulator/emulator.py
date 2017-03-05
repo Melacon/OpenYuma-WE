@@ -3,6 +3,7 @@ import logging
 import subprocess
 import xml.etree.ElementTree as ET
 import copy
+import ipaddress
 
 from wireless_emulator.utils import printErrorAndExit
 from wireless_emulator.ip import ManagementNetworkIPFactory, InterfaceIPFactory, MacAddressFactory
@@ -14,26 +15,76 @@ logger = logging.getLogger(__name__)
 
 class Emulator(metaclass=Singleton):
 
-    def __init__(self, topologyFileName = None, xmlConfigFile = None):
+    def __init__(self, topologyFileName = None, xmlConfigFile = None, configFileName = None):
         self.networkElementList = []
         self.topologies = []
-        self.controllerInfo = {}
-        self.mgmtIpFactory = ManagementNetworkIPFactory()
-        self.intfIpFactory = InterfaceIPFactory()
-        self.macAddressFactory = MacAddressFactory()
+        self.controllerInfo = {"ip-address" : None, "port" : None, "username" : None, "password" : None}
         self.topoJson = None
+        self.configJson = None
         self.xmlConfigFile = xmlConfigFile
+        self.xmlStatusFile = None
+        self.registerToOdl = False
+        if xmlConfigFile is not None:
+            self.xmlStatusFile = xmlConfigFile.replace("config", "status")
 
+        if topologyFileName is not None:
+            try:
+                with open(topologyFileName) as json_data:
+                    self.topoJson = json.load(json_data)
+            except IOError as err:
+                logger.critical("Could not open topology file=%s", topologyFileName)
+                logger.critical("I/O error({0}): {1}".format(err.errno, err.strerror))
+                printErrorAndExit()
 
-        try:
-            with open(topologyFileName) as json_data:
-                self.topoJson = json.load(json_data)
-        except IOError as err:
-            logger.critical("Could not open topology file=%s", topologyFileName)
-            logger.critical("I/O error({0}): {1}".format(err.errno, err.strerror))
-            printErrorAndExit()
+        if configFileName is not None:
+            try:
+                with open(configFileName) as json_data:
+                    self.configJson = json.load(json_data)
+            except IOError as err:
+                logger.critical("Could not open configuration file=%s", configFileName)
+                logger.critical("I/O error({0}): {1}".format(err.errno, err.strerror))
+                printErrorAndExit()
 
-        self.createMainBridge()
+        self.mgmtIpFactory = None
+        self.intfIpFactory = None
+
+        if self.configJson['managementIpNetwork'] is not None and self.configJson['linksIpNetwork'] is not None:
+            if self.validatePreferedIpNetworks(self.configJson['managementIpNetwork'],
+                                            self.configJson['linksIpNetwork']) == False:
+                self.mgmtIpFactory = ManagementNetworkIPFactory(self.configJson['managementIpNetwork'])
+                self.intfIpFactory = InterfaceIPFactory(self.configJson['linksIpNetwork'])
+            else:
+                logger.error("Management IP Network and Links IP Network overlap! Starting with default values!")
+                print("Management IP Network and Links IP Network overlap! Starting with default values!")
+                self.mgmtIpFactory = ManagementNetworkIPFactory('192.168.0.0/16')
+                self.intfIpFactory = InterfaceIPFactory('10.10.0.0/16')
+        else:
+            self.mgmtIpFactory = ManagementNetworkIPFactory('192.168.0.0/16')
+            self.intfIpFactory = InterfaceIPFactory('10.10.0.0/16')
+
+        self.macAddressFactory = MacAddressFactory()
+
+        self.saveControllerInfo()
+
+    def validatePreferedIpNetworks(self, mngIpNetwork, linksIpNetwork):
+        mngNetwork = ipaddress.ip_network(mngIpNetwork)
+        linksNetwork = ipaddress.ip_network(linksIpNetwork)
+
+        return mngNetwork.overlaps(linksNetwork)
+
+    def saveControllerInfo(self):
+        self.controllerInfo['ip-address'] = self.configJson['controller']['ip-address']
+        self.controllerInfo['port'] = self.configJson['controller']['port']
+        self.controllerInfo['username'] = self.configJson['controller']['username']
+        self.controllerInfo['password'] = self.configJson['controller']['password']
+
+        if self.controllerInfo['ip-address'] is None or self.controllerInfo['port'] is None \
+            or self.controllerInfo['username'] is None or self.controllerInfo['password'] is None:
+            logger.error("Could not read controller parameters from the JSON topology file! "
+                         "The emulator will not try to register the NEs to the ODL controller")
+
+        self.registerToOdl = True
+
 
     def createMainBridge(self):
         cmd = subprocess.Popen('ovs-vsctl list-br', shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
@@ -86,3 +137,8 @@ class Emulator(metaclass=Singleton):
     def createTopologies(self):
         self.createTopologiesList()
         self.buildTopologies()
+
+    def startEmulator(self):
+        self.createMainBridge()
+        self.createNetworkElements()
+        self.createTopologies()

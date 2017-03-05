@@ -1,9 +1,13 @@
 import logging
 import subprocess
+import json
+from wireless_emulator.odlregistration import unregisterNeFromOdl
+import wireless_emulator.emulator
 
 logger = logging.getLogger(__name__)
 
-def cleanup():
+def cleanup(configFileName = None):
+
     dockerNames = getDockerNames()
     dockerNetworks = getDockerNetworks()
 
@@ -12,19 +16,29 @@ def cleanup():
 
     removeMainBridge()
 
+    if configFileName is not None:
+        try:
+            with open(configFileName) as json_data:
+                configJson = json.load(json_data)
+                controllerInfo = configJson['controller']
+                unregisterNesFromOdl(controllerInfo, dockerNames)
+        except IOError as err:
+            logger.critical("Could not open configuration file=%s", configFileName)
+            logger.critical("I/O error({0}): {1}".format(err.errno, err.strerror))
+
     print("All cleaned up!")
     return True
 
 def getDockerNames():
     dockerNamesList = []
 
-    stringCmd = "docker ps -a | grep yumatest | awk '{print $NF}'"
+    stringCmd = "docker ps -a | grep openyuma | awk '{print $NF}'"
 
     cmd = subprocess.Popen(stringCmd, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
 
     for line in cmd.stderr:
         strLine = line.decode("utf-8").rstrip('\n')
-        logger.critical("Could not get names of docker containers having image yumatest.\n Stderr: %s", strLine)
+        logger.critical("Could not get names of docker containers having image openyuma.\n Stderr: %s", strLine)
         raise RuntimeError("Could not get docker container names")
 
     for line in cmd.stdout:
@@ -83,8 +97,8 @@ def removeDockerNetworks(dockerNetworks):
 
         for line in cmd.stderr:
             strLine = line.decode("utf-8").rstrip('\n')
-            logger.critical("Could not remove docker network %s\n Stderr: %s" % network, strLine)
-            raise RuntimeError("Could not remove docker container %s" % network)
+            logger.critical("Could not remove docker network %s\n Stderr: %s", network, strLine)
+            raise RuntimeError("Could not remove docker network %s", network)
 
 def removeMainBridge():
     cmd = subprocess.Popen('ovs-vsctl list-br', shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
@@ -98,3 +112,18 @@ def removeMainBridge():
             print("Bridge oywe-br deleted...")
             break
 
+def unregisterNesFromOdl(controllerInfo, neNamesList):
+
+    if controllerInfo is None or \
+        controllerInfo['ip-address'] is None or \
+        controllerInfo['port'] is None or \
+        controllerInfo['username'] is None or \
+        controllerInfo['password'] is None:
+
+        return True
+
+    for uuid in neNamesList:
+        try:
+            unregisterNeFromOdl(controllerInfo, uuid)
+        except RuntimeError:
+            print("Failed to unregister NE=%s from ODL controller" % uuid)

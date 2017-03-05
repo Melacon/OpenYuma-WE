@@ -7,7 +7,8 @@
         "interfaces" : [
           {
             "layer" : "MWPS",
-            "LTPs" : [{"id": "ifIndex1"}]
+            "LTPs" : [{"id": "ifIndex1",
+              "supportedAlarms" : "signalIsLost, rslIsExceeded, temperatureIsExceeded, modemIsFaulty, radioIsFaulty, modulationIsDownShifted"}]
           },
           {
             "layer" : "MWS",
@@ -27,7 +28,10 @@
         "interfaces" : [
           {
             "layer" : "MWPS",
-            "LTPs" : [{"id": "ifIndex1"},{"id" : "ifIndex2"}]
+            "LTPs" : [{"id": "ifIndex1",
+            "supportedAlarms" : "signalIsLost, rslIsExceeded, temperatureIsExceeded, modemIsFaulty, radioIsFaulty, modulationIsDownShifted"},
+              {"id" : "ifIndex2",
+              "supportedAlarms" : "signalIsLost, rslIsExceeded, temperatureIsExceeded, modemIsFaulty, radioIsFaulty, modulationIsDownShifted"}]
           },
           {
             "layer" : "MWS",
@@ -47,7 +51,8 @@
         "interfaces" : [
           {
             "layer" : "MWPS",
-            "LTPs" : [{"id": "ifIndex1"}]
+            "LTPs" : [{"id": "ifIndex1",
+            "supportedAlarms" : "signalIsLost, rslIsExceeded, temperatureIsExceeded, modemIsFaulty, radioIsFaulty, modulationIsDownShifted"}]
           },
           {
             "layer" : "MWS",
@@ -64,8 +69,8 @@
   "topologies" : {
     "mwps" : {
       "links" : [
-        [{"uuid" : "Simulator-1", "ltp" : "ifIndex1"}, {"uuid" : "Simulator-2", "ltp" : "ifIndex1"}],
-        [{"uuid" : "Simulator-2", "ltp" : "ifIndex2"}, {"uuid" : "Simulator-3", "ltp" : "ifIndex1"}]
+        [{"uuid" : "Simulator-1", "ltp" : "ifIndex1", "radio-signal-id" : "26"}, {"uuid" : "Simulator-2", "ltp" : "ifIndex1", "radio-signal-id" : "26"}],
+        [{"uuid" : "Simulator-2", "ltp" : "ifIndex2", "radio-signal-id" : "27"}, {"uuid" : "Simulator-3", "ltp" : "ifIndex1", "radio-signal-id" : "27"}]
         ]
     },
     "mws" : {}
