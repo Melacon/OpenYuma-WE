@@ -74,12 +74,5 @@
         ]
     },
     "mws" : {}
-  },
-  "controller" :
-  {
-    "ip-address" : "192.168.254.254",
-    "port" : 8181,
-    "username" : "admin",
-    "password" : "admin"
   }
 }
