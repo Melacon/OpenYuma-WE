@@ -85,23 +85,6 @@ class Emulator(metaclass=Singleton):
 
         self.registerToOdl = True
 
-
-    def createMainBridge(self):
-        cmd = subprocess.Popen('ovs-vsctl list-br', shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-
-        for line in cmd.stdout:
-            bridge = line.decode("utf-8").rstrip('\n')
-            if bridge == "oywe-br":
-                cmd = subprocess.Popen('ovs-vsctl del-br oywe-br', shell=True, stdout=subprocess.PIPE,
-                                       stderr=subprocess.PIPE)
-                logger.info("Bridge %s already present, deleting it", bridge)
-                break
-
-        cmd = subprocess.Popen('ovs-vsctl add-br oywe-br',
-                               shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-        logger.info("Bridge oywe-br created!")
-        print("Bridge oywe-br created...")
-
     def createNetworkElements(self):
         logger.debug("Creating Network Elements")
 
@@ -139,6 +122,5 @@ class Emulator(metaclass=Singleton):
         self.buildTopologies()
 
     def startEmulator(self):
-        self.createMainBridge()
         self.createNetworkElements()
         self.createTopologies()

@@ -60,7 +60,7 @@
           <alic-is-up>false</alic-is-up>
           <atpc-is-up>false</atpc-is-up>
           <auto-freq-select-is-up>false</auto-freq-select-is-up>
-          <loop-back-kind-up>non</loop-back-kind-up>
+          <loop-back-kind-up>none</loop-back-kind-up>
           <local-end-point-id>not-supported</local-end-point-id>
           <remote-end-point-id>not-supported</remote-end-point-id>
        </air-interface-status>

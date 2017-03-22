@@ -62,7 +62,7 @@ class Interface:
         addCoreDefaultValuesToNode(ltpNode, ltpUuid, self.neObj.namespaces)
 
         lpNode = ltpNode.find('core-model:lp', self.neObj.namespaces)
-        uuid = ltpNode.find('core-model:uuid', self.neObj.namespaces)
+        uuid = lpNode.find('core-model:uuid', self.neObj.namespaces)
         lpUuid = "lp-" + self.interfaceName
         uuid.text = lpUuid
         layerProtocolName = lpNode.find('core-model:layer-protocol-name', self.neObj.namespaces)

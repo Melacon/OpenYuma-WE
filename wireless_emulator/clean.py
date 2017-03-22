@@ -14,7 +14,7 @@ def cleanup(configFileName = None):
     stopAndRemoveDockerContainers(dockerNames)
     removeDockerNetworks(dockerNetworks)
 
-    removeMainBridge()
+    removeLinkBridges()
 
     if configFileName is not None:
         try:
@@ -100,17 +100,17 @@ def removeDockerNetworks(dockerNetworks):
             logger.critical("Could not remove docker network %s\n Stderr: %s", network, strLine)
             raise RuntimeError("Could not remove docker network %s", network)
 
-def removeMainBridge():
-    cmd = subprocess.Popen('ovs-vsctl list-br', shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+def removeLinkBridges():
+    cmd = subprocess.Popen('ovs-vsctl list-br | grep -i oywe-br', shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
 
     for line in cmd.stdout:
         bridge = line.decode("utf-8").rstrip('\n')
-        if bridge == "oywe-br":
-            cmd = subprocess.Popen('ovs-vsctl del-br oywe-br', shell=True, stdout=subprocess.PIPE,
-                                   stderr=subprocess.PIPE)
-            logger.info("Bridge oywe-br deleted!")
-            print("Bridge oywe-br deleted...")
-            break
+        stringCmd = "ovs-vsctl del-br %s" % (bridge)
+        print("Removing OVS bridge %s" % bridge)
+        cmd = subprocess.Popen(stringCmd, shell=True, stdout=subprocess.PIPE,
+                               stderr=subprocess.PIPE)
+        logger.info("Bridge %s deleted!", bridge)
+        print("Bridge %s deleted..." % bridge)
 
 def unregisterNesFromOdl(controllerInfo, neNamesList):
 

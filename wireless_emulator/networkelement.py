@@ -66,8 +66,8 @@ class NetworkElement:
         else:
             self.xmlStatusTree = tree
 
-        self.namespaces = {'microwave-model' : 'urn:onf:params:xml:ns:yang:MicrowaveModel',
-                           'core-model' : 'urn:onf:params:xml:ns:yang:CoreModel'}
+        self.namespaces = {'microwave-model' : 'urn:onf:params:xml:ns:yang:microwave-model',
+                           'core-model' : 'urn:onf:params:xml:ns:yang:core-model'}
         self.saveXmlTemplates()
 
         logger.info("Created NetworkElement object with uuid=%s and id=%s and IP=%s",

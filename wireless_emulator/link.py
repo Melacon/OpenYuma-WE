@@ -6,10 +6,11 @@ import wireless_emulator.emulator
 logger = logging.getLogger(__name__)
 
 class Link:
-
+    linkNumber = 1
     def __init__(self, linkEnds):
         self.linkEnds =  linkEnds
         self.emEnv = wireless_emulator.emulator.Emulator()
+        self.bridgeName = None
 
         self.interfacesObj = []
 
@@ -63,8 +64,21 @@ class Link:
         self.interfacesObj[0].setIpAddress(firstIpOfLink)
         self.interfacesObj[1].setIpAddress(secondIpOfLink)
 
-        stringCmd = "ovs-docker add-port oywe-br %s %s --ipaddress=%s/30 --macaddress=%s" % \
-                    (self.interfacesObj[0].getInterfaceName(), self.interfacesObj[0].getNeName(),
+        self.bridgeName = "oywe-br-" + str(Link.linkNumber)
+
+        stringCmd = "ovs-vsctl add-br %s" % (self.bridgeName)
+        cmd = subprocess.Popen(stringCmd, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+
+        for line in cmd.stderr:
+            strLine = line.decode("utf-8").rstrip('\n')
+            logger.critical("Could not add bridge for link. Stderr: %s", strLine)
+            raise RuntimeError
+        logger.debug("Added bridge %s for link.", self.bridgeName)
+
+        Link.linkNumber += 1
+
+        stringCmd = "ovs-docker add-port %s %s %s --ipaddress=%s/30 --macaddress=%s" % \
+                    (self.bridgeName, self.interfacesObj[0].getInterfaceName(), self.interfacesObj[0].getNeName(),
                      firstIpOfLink, self.interfacesObj[0].getMacAddress())
         cmd = subprocess.Popen(stringCmd, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
 
@@ -76,8 +90,8 @@ class Link:
                      self.interfacesObj[0].getInterfaceName(), self.interfacesObj[0].getNeName(),
                      firstIpOfLink)
 
-        stringCmd = "ovs-docker add-port oywe-br %s %s --ipaddress=%s/30 --macaddress=%s" % \
-                    (self.interfacesObj[1].getInterfaceName(), self.interfacesObj[1].getNeName(),
+        stringCmd = "ovs-docker add-port %s %s %s --ipaddress=%s/30 --macaddress=%s" % \
+                    (self.bridgeName, self.interfacesObj[1].getInterfaceName(), self.interfacesObj[1].getNeName(),
                      secondIpOfLink, self.interfacesObj[1].getMacAddress())
         cmd = subprocess.Popen(stringCmd, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
 
