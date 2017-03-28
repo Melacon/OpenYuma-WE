@@ -182,6 +182,7 @@
        </air-interface-historical-performances>
     </mw-air-interface-pac>
     <co-channel-group>
+       <co-channel-group-id/>
        <air-interface-list/>
        <logical-termination-point/>
     </co-channel-group>

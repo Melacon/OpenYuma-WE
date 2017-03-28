@@ -7,6 +7,7 @@ from wireless_emulator.emulator import Emulator
 from wireless_emulator.utils import ensureRoot
 from wireless_emulator.clean import cleanup
 from wireless_emulator.utils import Singleton
+from wireless_emulator.cli import CLI
 
 logging.basicConfig(filename='debug.log', level=logging.DEBUG,
                     format='%(asctime)s - [%(levelname)s] %(filename)s:%(lineno)d - %(message)s',
@@ -104,6 +105,7 @@ class EmulatorRunner():
         e = Emulator(topologyFileName = self.topologyJsonFile, xmlConfigFile = self.xmlConfigFile, configFileName = self.configJsonFile)
         e.startEmulator()
         print("Emulator started successfully!")
+        CLI(e)
 
 
 if __name__ == '__main__':

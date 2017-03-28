@@ -11,6 +11,7 @@ class Link:
         self.linkEnds =  linkEnds
         self.emEnv = wireless_emulator.emulator.Emulator()
         self.bridgeName = None
+        self.linkId = None
 
         self.interfacesObj = []
 
@@ -75,6 +76,7 @@ class Link:
             raise RuntimeError
         logger.debug("Added bridge %s for link.", self.bridgeName)
 
+        self.linkId = Link.linkNumber
         Link.linkNumber += 1
 
         stringCmd = "ovs-docker add-port %s %s %s --ipaddress=%s/30 --macaddress=%s" % \

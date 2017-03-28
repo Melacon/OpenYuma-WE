@@ -359,3 +359,13 @@ class NetworkElement:
         self.xmlConfigurationTree.write('output-config-' + self.dockerName + '.xml')
         self.xmlStatusTree.write('output-status-' + self.dockerName + '.xml')
 
+    def executeCommand(self, command):
+        stringCmd = "docker exec -it %s %s" % (self.dockerName, command)
+        cmd = subprocess.Popen(stringCmd, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+
+        for line in cmd.stderr:
+            strLine = line.decode("utf-8").rstrip('\n')
+            logger.critical("Stderr: %s", strLine)
+            raise RuntimeError
+        for line in cmd.stdout:
+            print(line.decode("utf-8").rstrip('\n'))

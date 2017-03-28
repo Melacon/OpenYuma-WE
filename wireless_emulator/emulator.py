@@ -17,6 +17,7 @@ class Emulator(metaclass=Singleton):
 
     def __init__(self, topologyFileName = None, xmlConfigFile = None, configFileName = None):
         self.networkElementList = []
+        self.neNamesList = []
         self.topologies = []
         self.controllerInfo = {"ip-address" : None, "port" : None, "username" : None, "password" : None}
         self.topoJson = None
@@ -37,6 +38,7 @@ class Emulator(metaclass=Singleton):
                 printErrorAndExit()
 
         if configFileName is not None:
+            self.configFileName = configFileName
             try:
                 with open(configFileName) as json_data:
                     self.configJson = json.load(json_data)
@@ -101,6 +103,7 @@ class Emulator(metaclass=Singleton):
                 printErrorAndExit()
             neObj.addNetworkElement()
             self.networkElementList.append(neObj)
+            self.neNamesList.append(neObj.uuid)
             neId += 1
 
     def createTopologiesList(self):
@@ -124,3 +127,9 @@ class Emulator(metaclass=Singleton):
     def startEmulator(self):
         self.createNetworkElements()
         self.createTopologies()
+
+    def getNeByName(self, name):
+        for ne in self.networkElementList:
+            if ne.uuid == name:
+                return ne
+        return None
